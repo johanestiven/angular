@@ -1,0 +1,46 @@
+<br><div class="container px-lg-5">
+  <div class="row mx-lg-n5">
+    <div class="col py-3 px-lg-5 border bg-light">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">STOCK</th>
+            <th scope="col">PRECIO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productosArray" (click)="Editar(producto)">
+            <td>{{producto.id}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.stock}}</td>
+            <td>{{producto.precio}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col py-3 px-lg-5 border bg-light">
+      <h4>Administrar productos</h4>
+      <input [(ngModel)]="productosSelect.id" class="form-control" type="text" placeholder="INGRESE ID"
+      style="margin-top:5px;">
+      <input [(ngModel)]="productosSelect.nombre" class="form-control" type="text" placeholder="INGRESE NOMBRE"
+      style="margin-top:5px;">
+      <input [(ngModel)]="productosSelect.stock" class="form-control" type="text" placeholder="INGRESE STOCK"
+      style="margin-top:5px;">
+      <input [(ngModel)]="productosSelect.precio" class="form-control" type="text" placeholder="INGRESE PRECIO"
+      style="margin-top:5px;">
+    
+      <button (click)="Agregar()" class="btn btn-outline-success my-2 my-sm-0" type="submit"
+      style="margin-top:10px; margin-right:5px;">Aceptar</button>
+
+      <button *ngIf="productosSelect.id > 0"
+      (click)="Eliminar()" class="btn btn-outline-danger my-2 my-sm-0" type="submit"
+      style="margin-top:5px;" >Eliminar</button>
+
+    </div>
+  </div>
+</div>
+
+
+
